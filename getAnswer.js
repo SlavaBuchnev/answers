@@ -4083,39 +4083,39 @@ const questions = [
 // ========== ФУНКЦИЯ ПОИСКА ОТВЕТОВ ==========
 (function() {
     if (typeof questions === 'undefined' || !Array.isArray(questions) || questions.length === 0) {
-        console.error('❌ Массив questions не загружен. Убедитесь, что вы скопировали его полностью.');
+        console.error('Массив questions не загружен. Убедитесь, что вы скопировали его полностью.');
         return;
     }
 
-    window.getAnswer = function(query) {
+    window.ga = function(query) {
         const q = questions;
         if (typeof query === 'number') {
             const index = query - 1;
             if (index >= 0 && index < q.length) {
-                console.log(`\n📌 Вопрос ${query}: ${q[index].text}`);
-                console.log(`✅ Правильный ответ: ${q[index].options[q[index].correct]}`);
+                console.log(`\nВопрос ${query}: ${q[index].text}`);
+                console.log(`Правильный ответ: ${q[index].options[q[index].correct]}`);
             } else {
-                console.log(`❌ Вопрос с номером ${query} не найден. Всего вопросов: ${q.length}`);
+                console.log(`Вопрос с номером ${query} не найден. Всего вопросов: ${q.length}`);
             }
         } 
         else if (typeof query === 'string') {
             const lowerQuery = query.toLowerCase();
             const found = q.filter((item, idx) => item.text.toLowerCase().includes(lowerQuery));
             if (found.length === 0) {
-                console.log('❌ Ничего не найдено.');
+                console.log('Ничего не найдено.');
             } else {
-                console.log(`🔍 Найдено вопросов: ${found.length}`);
+                console.log(`Найдено вопросов: ${found.length}`);
                 found.forEach(item => {
                     const originalIndex = q.indexOf(item) + 1;
-                    console.log(`\n📌 Вопрос ${originalIndex}: ${item.text}`);
-                    console.log(`✅ Правильный ответ: ${item.options[item.correct]}`);
+                    console.log(`\nВопрос ${originalIndex}: ${item.text}`);
+                    console.log(`Правильный ответ: ${item.options[item.correct]}`);
                 });
             }
         } 
         else {
-            console.log('ℹ️ Использование: getAnswer(номер) или getAnswer("текст для поиска")');
+            console.log('Использование: ga(номер) или ga("текст для поиска")');
         }
     };
 
-    console.log('✅ getAnswer загружена. Примеры:\n  getAnswer(1) — показать ответ на первый вопрос\n  getAnswer("документ") — найти вопросы со словом "документ"');
+    console.log('ga загружена. Примеры:\n  ga(1) — показать ответ на первый вопрос\n  ga("документ") — найти вопросы со словом "документ"');
 })();
