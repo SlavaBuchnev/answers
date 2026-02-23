@@ -4092,7 +4092,7 @@ const questions = [
         if (typeof query === 'number') {
             const index = query - 1;
             if (index >= 0 && index < q.length) {
-                console.log(`\nВопрос ${query}: ${q[index].text}`);
+                console.log(`\n Вопрос ${query}: ${q[index].text}`);
                 console.log(`Правильный ответ: ${q[index].options[q[index].correct]}`);
             } else {
                 console.log(`Вопрос с номером ${query} не найден. Всего вопросов: ${q.length}`);
@@ -4107,7 +4107,7 @@ const questions = [
                 console.log(`Найдено вопросов: ${found.length}`);
                 found.forEach(item => {
                     const originalIndex = q.indexOf(item) + 1;
-                    console.log(`\nВопрос ${originalIndex}: ${item.text}`);
+                    console.log(`\n Вопрос ${originalIndex}: ${item.text}`);
                     console.log(`Правильный ответ: ${item.options[item.correct]}`);
                 });
             }
