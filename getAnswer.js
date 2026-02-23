@@ -1,5 +1,5 @@
 // ========== МАССИВ ВОПРОСОВ (из файла Testovoe zadanie epsilon.html) ==========
-const questions = [
+var myQuestions = [
     {
       text: "Для включения отборов в списках (управляемых форм) по содержимому табличных частей объектов и их свойств, неотображаемых в форме:",
       options: [
@@ -4082,13 +4082,13 @@ const questions = [
 
 // ========== ФУНКЦИЯ ПОИСКА ОТВЕТОВ ==========
 (function() {
-    if (typeof questions === 'undefined' || !Array.isArray(questions) || questions.length === 0) {
-        console.error('Массив questions не загружен. Убедитесь, что вы скопировали его полностью.');
+    if (typeof myQuestions === 'undefined' || !Array.isArray(myQuestions) || myQuestions.length === 0) {
+        console.error('Массив myQuestions не загружен. Убедитесь, что вы скопировали его полностью.');
         return;
     }
 
     window.ga = function(query) {
-        const q = questions;
+        const q = myQuestions;
         if (typeof query === 'number') {
             const index = query - 1;
             if (index >= 0 && index < q.length) {
